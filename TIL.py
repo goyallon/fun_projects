@@ -1,10 +1,10 @@
 import requests
 import json 
  
-subreddit = 'todayilearned'
-count = 1
+subreddit = 'france'
+count = 10
 timeframe = 'day' #hour, day, week, month, year, all
-listing = 'random' # controversial, best, hot, new, random, rising, top
+listing = 'top' # controversial, best, hot, new, random, rising, top
  
 def get_reddit(subreddit,count):
     try:
@@ -15,7 +15,15 @@ def get_reddit(subreddit,count):
     return request.json()
  
 top_post = get_reddit(subreddit,count)
- 
+
+print("Acutalités du jour sur r/france:")
+for i in range(count):
+    print("..")
+    title = top_post["data"]["children"][i]['data']['title']
+    url = top_post["data"]["children"][i]['data']['url']
+    print(i+1, "-", f'\x1b]8;;{url}\x1b\\{title}\x1b]8;;\x1b\\')
+
+"""
 if listing != 'random':
     title = top_post['data']['children'][0]['data']['title']
     url = top_post['data']['children'][0]['data']['url']
@@ -25,3 +33,5 @@ else:
  
  
 print(f'{title}\n{url}')
+
+"""
