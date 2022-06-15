@@ -18,7 +18,7 @@ top_post = get_reddit(subreddit,count)
 
 print("Acutalités du jour sur r/france:")
 for i in range(count):
-    print("..")
+    print(".")
     title = top_post["data"]["children"][i]['data']['title']
     url = top_post["data"]["children"][i]['data']['url']
     print(i+1, "-", f'\x1b]8;;{url}\x1b\\{title}\x1b]8;;\x1b\\')
