@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation, writers
 from matplotlib.collections import LineCollection
 
+
 class Streamlines(object):
     """
     Copyright (c) 2011 Raymond Speth.
@@ -168,7 +169,7 @@ Y, X = np.mgrid[-6:6:100j, -3:3:100j]
 U, V = -1 - X**2 + Y, 1 + X - X*Y**2
 speed = np.sqrt(U*U + V*V)
 
-fig = plt.figure(figsize=(9,16), dpi= 120)
+fig = plt.figure(figsize=(4.5,8), dpi= 120,facecolor='black')
 ax = plt.subplot(1, 1, 1)
 ax.set_facecolor("black")
 plt.rcParams['image.cmap'] = 'inferno'
@@ -211,8 +212,10 @@ def update(frame_no):
 
 ax.set_xlim(-3,+3), ax.set_xticks([])
 ax.set_ylim(-3,+3), ax.set_yticks([])
-plt.tight_layout()
 
+
+plt.tight_layout()
+plt.savefig("test.png")
 fps = 25
 sec = 15
 nb = fps * sec
